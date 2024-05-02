@@ -54,7 +54,7 @@ data class SaikaiScanStoryDto(
             .select("p")
             .joinToString("\n\n") { it.text() }
         thumbnail_url = "${SaikaiScan.IMAGE_SERVER_URL}/$image"
-        url = "/comics/$slug"
+        url = "/series/$slug"
     }
 }
 
@@ -91,7 +91,7 @@ data class SaikaiScanReleaseDto(
         date_upload = runCatching { DATE_FORMATTER.parse(publishedAt)?.time }
             .getOrNull() ?: 0L
         scanlator = SaikaiScan.SOURCE_NAME
-        url = "/ler/comics/$storySlug/$id/$slug"
+        url = "/ler/series/$storySlug/$id/$slug"
     }
 
     companion object {
